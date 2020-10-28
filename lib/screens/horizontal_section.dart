@@ -8,8 +8,11 @@ class Horizontal extends StatelessWidget {
       height: 70,
 
       child: ListView(
+        shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         children: <Widget>[
+          IconButton(icon: Icon(Icons.filter_list),
+              onPressed: null),
           Category(
             name: 'Cats',
           ),
