@@ -1,11 +1,14 @@
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:pets_app/screens/product_screen.dart';
 class Recommended extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-    height: 320,
+    height: 323,
 
       child: ListView(
         shrinkWrap: true,
@@ -15,7 +18,7 @@ class Recommended extends StatelessWidget {
 
           Category(
             images: 'images/cat_petapp.jpg',
-            name: 'Rosy',
+            name: 'Callie',
             breed: 'Persian Cat',
           ),
 
@@ -31,11 +34,7 @@ class Recommended extends StatelessWidget {
             breed: 'Agapornis',
           ),
 
-          Category(
-            images: 'images/rabbit_petapp.jpg',
-            name: 'Rabbit',
-            breed: 'Angora Rabbit',
-          ),
+
 
 
         ],
@@ -53,44 +52,88 @@ class Category extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
     padding: EdgeInsets.all(5.0),
-    child:Stack(
-      children: <Widget>[
-        Container(
+    child:Padding(
+      padding: const EdgeInsets.only(right:13.0),
+      child: InkWell( 
+        onTap: (){
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Product_screen(
+            name: name,image: images,breed: breed,
+          )));
+        },
+        child: Stack(
+          children: <Widget>[
+            Container(
 
-            decoration: BoxDecoration(
-             image: DecorationImage(
-               fit: BoxFit.fill,
-                 image: AssetImage(images,
+                decoration: BoxDecoration(
+          boxShadow: [
+                 BoxShadow(
+                   color: Colors.grey.shade400,
+                   spreadRadius: 3,
+                   blurRadius: 4,
+                   offset: Offset(3,12),
+                 )
+               ],
+                 image: DecorationImage(
+                   fit: BoxFit.fill,
+                     image: AssetImage(images,
+                     ),
                  ),
-             ),
-                color: Colors.black,
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(30),
-                  bottomLeft:  Radius.circular(30),
-                  bottomRight:  Radius.circular(30),
-                )
-            ),
+                    color: Colors.black,
+                    borderRadius: BorderRadius.only(topLeft: Radius.circular(30),
+                      bottomLeft:  Radius.circular(30),
+                      bottomRight:  Radius.circular(30),
+                    )
+                ),
 
-            height: 295,
-            width:200),
-        Positioned(
-           bottom: 8,
+                height: 295,
+                width:200),
+            Positioned(
+               bottom: 8,
 
-          child: Container(
+              child: Container(
+                child: Padding(
+                  padding: const EdgeInsets.only(left:15.0,top: 15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(name,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.grey.shade200,
+                        fontWeight: FontWeight.w600
+                      ),
+                      ),
+                      SizedBox(
+                        height: 2.5,
+                      ),
 
-            decoration: BoxDecoration(
-                color:Color(0xff989898),
-                borderRadius: BorderRadius.only(
-                  topLeft:Radius.circular(30),
-                  bottomLeft:  Radius.circular(30),
-                  bottomRight:  Radius.circular(30),
-                )
-            ),
+                      Text(breed,
+                        style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.grey.shade400,
+                            fontWeight: FontWeight.w600
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
 
-            height: 80,
-            width:200
-          ),
-        )
-      ],
+                decoration: BoxDecoration(
+                    color:Color(0xff8e867d),
+                    borderRadius: BorderRadius.only(
+                      topLeft:Radius.circular(30),
+                      bottomLeft:  Radius.circular(30),
+                      bottomRight:  Radius.circular(30),
+                    )
+                ),
+
+                height: 80,
+                width:200
+              ),
+            )
+          ],
+        ),
+      ),
     )
     // GridTile(
     //   footer:Text('hii')  ,
