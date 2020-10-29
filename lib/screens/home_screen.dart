@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pets_app/screens/horizontal_section.dart';
 import 'package:pets_app/screens/recommended_screen.dart';
+// ignore: camel_case_types
 class Home_screen extends StatefulWidget {
   @override
   _Home_screenState createState() => _Home_screenState();
